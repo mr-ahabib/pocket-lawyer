@@ -1,0 +1,20 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.gemmallm'
+version = '1.0.0'
+
+android {
+  namespace "expo.modules.gemmallm"
+  defaultConfig {
+    versionCode 1
+    versionName "1.0.0"
+  }
+}
+
+dependencies {
+  // Google MediaPipe LLM Inference (Google AI Edge) - runs Gemma .task models fully on-device.
+  implementation 'com.google.mediapipe:tasks-genai:0.10.27'
+}

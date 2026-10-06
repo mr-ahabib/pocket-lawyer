@@ -1,24 +1,85 @@
 {
   "expo": {
-    "name": "pocket-lawyer",
+    "name": "Pocket Lawyer",
     "slug": "pocket-lawyer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "org.pocketlawyer.bd"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0C3B2E",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "package": "org.pocketlawyer.bd",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true
+        }
+      ],
+      "expo-router",
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 140,
+          "resizeMode": "contain",
+          "backgroundColor": "#0C3B2E"
+        }
+      ],
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "কথা বলে প্রশ্ন করার জন্য মাইক্রোফোন প্রয়োজন।",
+          "speechRecognitionPermission": "ভয়েস টাইপিংয়ের জন্য স্পিচ রিকগনিশন প্রয়োজন।",
+          "androidSpeechServicePackages": [
+            "com.google.android.googlequicksearchbox",
+            "com.google.android.tts"
+          ]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableMinifyInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true,
+            "extraProguardRules": "# MediaPipe / TFLite / protobuf used by the on-device model\n-keep class com.google.mediapipe.** { *; }\n-keep class com.google.protobuf.** { *; }\n-keep class org.tensorflow.** { *; }\n-keep class com.google.ai.edge.** { *; }\n-dontwarn com.google.mediapipe.**\n-dontwarn org.tensorflow.**\n# Expo modules are registered reflectively\n-keep class expo.modules.** { *; }\n-keep class expo.modules.gemmallm.** { *; }\n",
+            "buildArchs": [
+              "arm64-v8a"
+            ]
+          }
+        }
+      ]
+    ],
+    "scheme": "pocketlawyer",
+    "newArchEnabled": true,
+    "experiments": {
+      "typedRoutes": true
+    },
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0C3B2E"
     }
   }
 }

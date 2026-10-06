@@ -39,3 +39,19 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# generated native projects (CNG)
+/android
+/ios
+# scraped raw data (rebuild with npm run data:scrape)
+/data/*.json
+.expo
+
+# large build artifacts (GitHub 100MB limit; app ships bdlaws.db.gz)
+/assets/db/bdlaws.db
+*.apk
+modules/*/android/build/
+
+# Claude Code
+.claude/
+CLAUDE.md
